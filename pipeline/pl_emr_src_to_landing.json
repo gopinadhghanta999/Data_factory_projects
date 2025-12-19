@@ -80,7 +80,9 @@
 										}
 									}
 								},
-								"fieldList": [],
+								"fieldList": [
+									"exists"
+								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
 									"recursive": true,
@@ -203,6 +205,34 @@
 									"value": "@equals(item().loadtype,'Full')",
 									"type": "Expression"
 								},
+								"ifFalseActivities": [
+									{
+										"name": "Fetch_logs_lkp",
+										"type": "Lookup",
+										"dependsOn": [],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"source": {
+												"type": "AzureDatabricksDeltaLakeSource"
+											},
+											"dataset": {
+												"referenceName": "kaiser_db_deltalake_ds",
+												"type": "DatasetReference",
+												"parameters": {
+													"schema_name": "'aa'",
+													"table_name": "'a'"
+												}
+											}
+										}
+									}
+								],
 								"ifTrueActivities": [
 									{
 										"name": "full_load",
