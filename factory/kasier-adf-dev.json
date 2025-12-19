@@ -1,0 +1,9 @@
+{
+	"name": "kasier-adf-dev",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7051e4ec-4eea-41ed-afcf-22b85dd96e49",
+		"tenantId": "38044e29-8847-411f-99f8-85486b64ef6e"
+	}
+}
