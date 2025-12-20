@@ -231,7 +231,7 @@
 											"source": {
 												"type": "AzureDatabricksDeltaLakeSource",
 												"query": {
-													"value": "@concat('select coalesce(cast(max(loaddate) as date),''','1999-21-12',''') as latest_updated_date from audit.load_logs where datasource = ''',item().datasource,''' and tablename = ''',item().tablename,'''')",
+													"value": "@concat('select coalesce(cast(max(loaddate) as date),''','1999-12-21',''') as latest_updated_date from audit.load_logs where datasource = ''',item().datasource,''' and tablename = ''',item().tablename,'''')",
 													"type": "Expression"
 												}
 											},
@@ -354,7 +354,7 @@
 											"source": {
 												"type": "AzureDatabricksDeltaLakeSource",
 												"query": {
-													"value": "@concat('insert into audit.load_logs(datasource,tablename,numberofrows_copied,watermarkcoulmname,loaddate) values (''',item().datasource,''',''',item().tablename,''',''',activity('Incremental_load_cp').output.rowscopied,''',''',item().watermarkcolumnname,''',''',formatDateTime(utcNow(), 'yyyy-MM-dd HH:mm:ss'),''')')",
+													"value": "@concat('insert into audit.load_logs(datasource,tablename,numberofrows_copied,watermarkcoulmname,loaddate) values (''',item().datasource,''',''',item().tablename,''',''',activity('Incremental_load_cp').output.rowscopied,''',''',item().watermarkcolumnname,''',''',formatDateTime(utcNow(), 'yyyy-MM-dd'),''')')",
 													"type": "Expression"
 												}
 											},
@@ -472,7 +472,7 @@
 											"source": {
 												"type": "AzureDatabricksDeltaLakeSource",
 												"query": {
-													"value": "@concat('insert into audit.load_logs(datasource,tablename,numberofrows_copied,watermarkcolumnname,loaddate) values (\n    ''',item().datasource,''',''',item().tablename,''',''',activity('full_load').output.rowscopied,''',''',item().watermark,''',''',formatDateTime(utcNow(),'yyyy-MM-dd HH:mm:ss.fff'),''')')",
+													"value": "@concat('insert into audit.load_logs(datasource,tablename,numberofrows_copied,watermarkcolumnname,loaddate) values (\n    ''',item().datasource,''',''',item().tablename,''',''',activity('full_load').output.rowscopied,''',''',item().watermark,''',''',formatDateTime(utcNow(), 'yyyy-MM-dd'),''')')",
 													"type": "Expression"
 												}
 											},
