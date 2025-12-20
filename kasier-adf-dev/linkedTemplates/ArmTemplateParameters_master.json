@@ -21,7 +21,7 @@
 			"value": "@{linkedService().db_name}"
 		},
 		"hosp_sqldb_ls_properties_typeProperties_userName": {
-			"value": "kaiser"
+			"value": "kasier"
 		},
 		"kaiseradlsdev_ls_properties_typeProperties_url": {
 			"value": "https://kaiseradlsdev.dfs.core.windows.net/"

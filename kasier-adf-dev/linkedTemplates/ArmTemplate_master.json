@@ -29,7 +29,7 @@
 		},
 		"hosp_sqldb_ls_properties_typeProperties_userName": {
 			"type": "string",
-			"defaultValue": "kaiser"
+			"defaultValue": "kasier"
 		},
 		"kaiseradlsdev_ls_properties_typeProperties_url": {
 			"type": "string",
