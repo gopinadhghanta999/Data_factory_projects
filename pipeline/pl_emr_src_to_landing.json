@@ -354,7 +354,7 @@
 											"source": {
 												"type": "AzureDatabricksDeltaLakeSource",
 												"query": {
-													"value": "@concat('insert into audit.load_logs(datasource,tablename,numberofrows_copied,watermarkcoulmname,loaddate) values (''',item().datasource,''',''',item().tablename,''',''',activity('Incremental_load_cp').output.rowscopied,''',''',item().watermarkcolumnname,''',''',formatDateTime(utcNow(), 'yyyy-MM-dd'),''')')",
+													"value": "@concat('insert into audit.load_logs(datasource,tablename,numberofrows_copied,watermarkcoulmname,loaddate) values (''',item().datasource,''',''',item().tablename,''',''',activity('Incremental_load_cp').output.rowscopied,''',''',item().watermark,''',''',formatDateTime(utcNow(), 'yyyy-MM-dd'),''')')",
 													"type": "Expression"
 												}
 											},
