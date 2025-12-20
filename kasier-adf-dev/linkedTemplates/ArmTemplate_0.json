@@ -634,7 +634,7 @@
 													"source": {
 														"type": "AzureDatabricksDeltaLakeSource",
 														"query": {
-															"value": "@concat('insert into audit.load_logs(datasource,tablename,numberofrows_copied,watermarkcoulmname,loaddate) values (''',item().datasource,''',''',item().tablename,''',''',activity('Incremental_load_cp').output.rowscopied,''',''',item().watermarkcolumnname,''',''',utcNow(),''')')",
+															"value": "@concat('insert into audit.load_logs(datasource,tablename,numberofrows_copied,watermarkcoulmname,loaddate) values (''',item().datasource,''',''',item().tablename,''',''',activity('Incremental_load_cp').output.rowscopied,''',''',item().watermarkcolumnname,''',''',formatDateTime(utcNow(), 'yyyy-MM-dd HH:mm:ss'),''')')",
 															"type": "Expression"
 														}
 													},
@@ -752,7 +752,7 @@
 													"source": {
 														"type": "AzureDatabricksDeltaLakeSource",
 														"query": {
-															"value": "@concat('insert into audit.load_logs(datasource,tablename,numberofrows_copied,watermarkcolumnname,loaddate) values (\n    ''',item().datasource,''',''',item().tablename,''',''',activity('full_load').output.rowscopied,''',''',item().watermark,''',''',utcNow(),''')')",
+															"value": "@concat('insert into audit.load_logs(datasource,tablename,numberofrows_copied,watermarkcolumnname,loaddate) values (\n    ''',item().datasource,''',''',item().tablename,''',''',activity('full_load').output.rowscopied,''',''',item().watermark,''',''',formatDateTime(utcNow(), 'yyyy-MM-dd HH:mm:ss'),''')')",
 															"type": "Expression"
 														}
 													},
