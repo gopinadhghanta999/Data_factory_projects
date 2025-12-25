@@ -1,0 +1,19 @@
+{
+	"name": "kaiser_adbricks_ls_kv",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-7405614613009609.9.azuredatabricks.net/",
+			"accessToken": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "kaiser_hc_kv_ls",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "kaiser-adb-key"
+			},
+			"existingClusterId": "1218-053712-1arcelrf"
+		}
+	}
+}
