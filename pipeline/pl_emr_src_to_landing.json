@@ -574,7 +574,7 @@
 														"source": {
 															"type": "AzureSqlSource",
 															"sqlReaderQuery": {
-																"value": "@concat('select *,''',item().datasource,''' as datasource from ',item().tablename,' where ',item().watermark,' >= ''',activity('Fetch_logs_lkp').output.firstRow.latest_updated_date,'''')",
+																"value": "@concat('select *,''',item().datasource,''' as datasource from ',item().tablename,' where ',item().watermark,' >= ''',activity('Fetch_logs_lkp_copy1').output.firstRow.latest_updated_date,'''')",
 																"type": "Expression"
 															},
 															"queryTimeout": "02:00:00",
