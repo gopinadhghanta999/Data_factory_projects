@@ -6,7 +6,17 @@
 				"name": "If Condition2_copy1",
 				"type": "IfCondition",
 				"dependsOn": [],
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "databaseParam",
+						"value": "@item().database"
+					},
+					{
+						"name": "datasourceParam",
+						"value": "@item().datasource"
+					},
+					null
+				],
 				"typeProperties": {
 					"expression": {
 						"value": "@equals(item().loadtype,'Full')",
