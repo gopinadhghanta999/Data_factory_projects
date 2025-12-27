@@ -5,14 +5,14 @@
 		"factoryName": {
 			"value": "kasier-adf-dev"
 		},
-		"hosp_sqldb_ls_password": {
+		"kaiser_adb_ls_azureconnect_accessToken": {
 			"value": ""
 		},
 		"kaiser_databricks_ls_accessToken": {
 			"value": ""
 		},
-		"kaiseradlsdev_ls_accountKey": {
-			"value": ""
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://kaiser-healthcare-kv.vault.azure.net/"
 		},
 		"hosp_sqldb_ls_properties_typeProperties_server": {
 			"value": "kaisersqlserver.database.windows.net"
@@ -22,6 +22,15 @@
 		},
 		"hosp_sqldb_ls_properties_typeProperties_userName": {
 			"value": "kasier"
+		},
+		"kaiser_adb_ls_azureconnect_properties_typeProperties_existingClusterId": {
+			"value": "1218-053712-1arcelrf"
+		},
+		"kaiser_adbricks_ls_kv_properties_typeProperties_existingClusterId": {
+			"value": "1218-053712-1arcelrf"
+		},
+		"kaiser_hc_kv_ls_properties_typeProperties_baseUrl": {
+			"value": "https://kaiser-healthcare-kv.vault.azure.net"
 		},
 		"kaiseradlsdev_ls_properties_typeProperties_url": {
 			"value": "https://kaiseradlsdev.dfs.core.windows.net/"

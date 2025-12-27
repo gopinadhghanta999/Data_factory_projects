@@ -7,17 +7,17 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "kasier-adf-dev"
 		},
-		"hosp_sqldb_ls_password": {
+		"kaiser_adb_ls_azureconnect_accessToken": {
 			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'hosp_sqldb_ls'"
+			"metadata": "Secure string for 'accessToken' of 'kaiser_adb_ls_azureconnect'"
 		},
 		"kaiser_databricks_ls_accessToken": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'kaiser_databricks_ls'"
 		},
-		"kaiseradlsdev_ls_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'kaiseradlsdev_ls'"
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kaiser-healthcare-kv.vault.azure.net/"
 		},
 		"hosp_sqldb_ls_properties_typeProperties_server": {
 			"type": "string",
@@ -30,6 +30,18 @@
 		"hosp_sqldb_ls_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "kasier"
+		},
+		"kaiser_adb_ls_azureconnect_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "1218-053712-1arcelrf"
+		},
+		"kaiser_adbricks_ls_kv_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "1218-053712-1arcelrf"
+		},
+		"kaiser_hc_kv_ls_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kaiser-healthcare-kv.vault.azure.net"
 		},
 		"kaiseradlsdev_ls_properties_typeProperties_url": {
 			"type": "string",
@@ -62,14 +74,20 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"hosp_sqldb_ls_password": {
-						"value": "[parameters('hosp_sqldb_ls_password')]"
+					"kaiser_adb_ls_azureconnect_accessToken": {
+						"value": "[parameters('kaiser_adb_ls_azureconnect_accessToken')]"
 					},
 					"kaiser_databricks_ls_accessToken": {
 						"value": "[parameters('kaiser_databricks_ls_accessToken')]"
 					},
-					"kaiseradlsdev_ls_accountKey": {
-						"value": "[parameters('kaiseradlsdev_ls_accountKey')]"
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
+					"kaiser_adb_ls_azureconnect_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('kaiser_adb_ls_azureconnect_properties_typeProperties_existingClusterId')]"
+					},
+					"kaiser_hc_kv_ls_properties_typeProperties_baseUrl": {
+						"value": "[parameters('kaiser_hc_kv_ls_properties_typeProperties_baseUrl')]"
 					},
 					"hosp_sqldb_ls_properties_typeProperties_server": {
 						"value": "[parameters('hosp_sqldb_ls_properties_typeProperties_server')]"
@@ -79,6 +97,9 @@
 					},
 					"hosp_sqldb_ls_properties_typeProperties_userName": {
 						"value": "[parameters('hosp_sqldb_ls_properties_typeProperties_userName')]"
+					},
+					"kaiser_adbricks_ls_kv_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('kaiser_adbricks_ls_kv_properties_typeProperties_existingClusterId')]"
 					},
 					"kaiseradlsdev_ls_properties_typeProperties_url": {
 						"value": "[parameters('kaiseradlsdev_ls_properties_typeProperties_url')]"
