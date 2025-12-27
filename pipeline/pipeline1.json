@@ -15,7 +15,7 @@
 						"referenceName": "pl_emr_src_to_landing",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
