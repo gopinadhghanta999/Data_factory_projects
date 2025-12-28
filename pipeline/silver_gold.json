@@ -1,0 +1,406 @@
+{
+	"name": "silver_gold",
+	"properties": {
+		"activities": [
+			{
+				"name": "s_trans",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Silver/k_transactions_b_s"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "g_trans",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "s_trans",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Gold/k_fact_transaction_s_g"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "s_pat",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Silver/k_patients_b_s"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "g_pat",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "s_pat",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Gold/k_dim_patient_s_g"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "b_s_prov",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Silver/k_providers_b_s"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "s_g_prov",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "b_s_prov",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Gold/k_dim_provider_s_g"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "b_s_dept",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Silver/k_departments_b_s"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "s_g_dept",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "b_s_dept",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Gold/k_dim_department_s_g"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "b_s_npi",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Silver/K_NPI_b_s"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "s_g_npi",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "b_s_npi",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Gold/k_dim_npi_s_g"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "b_s_icd",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Silver/K_ICD Code_b_s"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "s_g_icd",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "b_s_icd",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Gold/k_dim_icd_code_s_g"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "s_encounters",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Silver/K_Encounters_b_s"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "b_s_cpd",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Silver/k_cpt_codes_b_s"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Notebook1",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "b_s_cpd",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Gold/K_dim_cpt_code_s_g"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "B_claims",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Bronze/kaiser_claims_data"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "claims_s",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "B_claims",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ghantagopi999@gmail.com/Databrickworkspace_projects/youtube_projects/kaiser_project/Silver/k_claims_data_b_s"
+				},
+				"linkedServiceName": {
+					"referenceName": "kaiser_adbricks_ls_kv",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-12-27T18:45:22Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

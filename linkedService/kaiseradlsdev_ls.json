@@ -1,0 +1,19 @@
+{
+	"name": "kaiseradlsdev_ls",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://kaiseradlsdev.dfs.core.windows.net/",
+			"accountKey": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "kaiser_hc_kv_ls",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "kaiser-adls-access-key-dev"
+			}
+		}
+	}
+}

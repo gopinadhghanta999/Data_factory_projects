@@ -1,0 +1,11 @@
+{
+	"name": "kaiser_hc_kv_ls",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://kaiser-healthcare-kv.vault.azure.net"
+		}
+	}
+}

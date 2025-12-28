@@ -1,0 +1,29 @@
+{
+	"name": "hosp_sqldb_ls",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"db_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "kaisersqlserver.database.windows.net",
+			"database": "@{linkedService().db_name}",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "kasier",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "kaiser_hc_kv_ls",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "sql-db-pwd-new"
+			}
+		}
+	}
+}
