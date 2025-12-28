@@ -635,7 +635,8 @@
 				"policy": {
 					"elapsedTimeMetric": {}
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2025-12-27T18:45:22Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/kaiser_adbricks_ls_kv')]"
@@ -1318,13 +1319,72 @@
 					"elapsedTimeMetric": {}
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-20T07:06:59Z"
+				"lastPublishTime": "2025-12-27T18:45:22Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/kaiser_datalake_flat_file_ds')]",
 				"[concat(variables('factoryId'), '/datasets/kaiser_datalake_parquet_file_ds')]",
 				"[concat(variables('factoryId'), '/datasets/kaiser_db_deltalake_ds')]",
 				"[concat(variables('factoryId'), '/datasets/Kasier_sqldb_ds')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "bronze",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"policy": {
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pl_emr_src_to_landing",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "silver_gold",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "bronze",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "silver_gold",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2025-12-27T19:22:53Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pl_emr_src_to_landing')]",
+				"[concat(variables('factoryId'), '/pipelines/silver_gold')]"
 			]
 		}
 	]
