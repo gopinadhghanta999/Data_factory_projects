@@ -1,0 +1,53 @@
+{
+	"name": "finaladls",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "final_adls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "orders",
+				"fileSystem": "silver"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "order_id",
+				"type": "UTF8"
+			},
+			{
+				"name": "customer_id",
+				"type": "UTF8"
+			},
+			{
+				"name": "product_id",
+				"type": "UTF8"
+			},
+			{
+				"name": "order_date",
+				"type": "INT96"
+			},
+			{
+				"name": "quantity",
+				"type": "INT_32"
+			},
+			{
+				"name": "total_amount",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "year",
+				"type": "INT_32"
+			},
+			{
+				"name": "flag",
+				"type": "INT_32"
+			}
+		]
+	}
+}
