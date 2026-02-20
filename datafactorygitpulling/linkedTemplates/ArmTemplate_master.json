@@ -55,6 +55,10 @@
 			"type": "string",
 			"defaultValue": "https://kaiseradlsdev.dfs.core.windows.net/"
 		},
+		"event_trgr_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/df68a351-a694-49f2-9102-37ace059da49/resourceGroups/first-resource/providers/Microsoft.Storage/storageAccounts/firstsadlsgen"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -117,6 +121,9 @@
 					},
 					"kaiseradlsdev_ls_properties_typeProperties_url": {
 						"value": "[parameters('kaiseradlsdev_ls_properties_typeProperties_url')]"
+					},
+					"event_trgr_properties_typeProperties_scope": {
+						"value": "[parameters('event_trgr_properties_typeProperties_scope')]"
 					}
 				}
 			},
