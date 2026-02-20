@@ -19,7 +19,7 @@
 						"type": "ParquetSource",
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
-							"fileListPath": "datasets/invoice/",
+							"recursive": true,
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
