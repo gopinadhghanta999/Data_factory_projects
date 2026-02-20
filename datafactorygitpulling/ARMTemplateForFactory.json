@@ -55,6 +55,10 @@
 			"type": "string",
 			"defaultValue": "https://kaiseradlsdev.dfs.core.windows.net/"
 		},
+		"latest_vault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://tetsingvault.vault.azure.net/"
+		},
 		"event_trgr_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/df68a351-a694-49f2-9102-37ace059da49/resourceGroups/first-resource/providers/Microsoft.Storage/storageAccounts/firstsadlsgen"
@@ -161,7 +165,7 @@
 								"formatSettings": {
 									"type": "DelimitedTextWriteSettings",
 									"quoteAllText": true,
-									"fileExtension": ".txt"
+									"fileExtension": ""
 								}
 							},
 							"enableStaging": false,
@@ -1545,6 +1549,19 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/kaiser_hc_kv_ls')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/latest_vault')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('latest_vault_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/event_trgr')]",
