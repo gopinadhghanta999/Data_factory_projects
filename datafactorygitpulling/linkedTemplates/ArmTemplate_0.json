@@ -334,7 +334,7 @@
 								"type": "ParquetSource",
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
-									"fileListPath": "datasets/invoice",
+									"fileListPath": "datasets/invoice/",
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
@@ -1506,6 +1506,7 @@
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
 					"blobPathBeginsWith": "/datasets/blobs/invoice/",
+					"blobPathEndsWith": ".parquet",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('event_trgr_properties_typeProperties_scope')]",
 					"events": [
