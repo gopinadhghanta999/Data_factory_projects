@@ -1221,7 +1221,7 @@
 						"folderPath": "invoice",
 						"fileSystem": "datasets"
 					},
-					"compressionCodec": "snappy"
+					"compressionCodec": "none"
 				},
 				"schema": []
 			},
