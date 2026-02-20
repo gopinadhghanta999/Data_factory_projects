@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "invoices_101_200.parquet",
 				"folderPath": "invoice",
 				"fileSystem": "datasets"
 			},
