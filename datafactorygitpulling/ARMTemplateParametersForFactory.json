@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "datafactorygitpulling"
+		},
+		"adls_ls_accountKey": {
+			"value": ""
+		},
+		"kaiser_adb_ls_azureconnect_accessToken": {
+			"value": ""
+		},
+		"kaiser_databricks_ls_accessToken": {
+			"value": ""
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://kaiser-healthcare-kv.vault.azure.net/"
+		},
+		"adls_ls_properties_typeProperties_url": {
+			"value": "https://firstsadlsgen.dfs.core.windows.net/"
+		},
+		"hosp_sqldb_ls_properties_typeProperties_server": {
+			"value": "kaisersqlserver.database.windows.net"
+		},
+		"hosp_sqldb_ls_properties_typeProperties_database": {
+			"value": "@{linkedService().db_name}"
+		},
+		"hosp_sqldb_ls_properties_typeProperties_userName": {
+			"value": "kasier"
+		},
+		"kaiser_adb_ls_azureconnect_properties_typeProperties_existingClusterId": {
+			"value": "1218-053712-1arcelrf"
+		},
+		"kaiser_adbricks_ls_kv_properties_typeProperties_existingClusterId": {
+			"value": "1218-053712-1arcelrf"
+		},
+		"kaiser_hc_kv_ls_properties_typeProperties_baseUrl": {
+			"value": "https://kaiser-healthcare-kv.vault.azure.net"
+		},
+		"kaiseradlsdev_ls_properties_typeProperties_url": {
+			"value": "https://kaiseradlsdev.dfs.core.windows.net/"
+		}
+	}
+}
